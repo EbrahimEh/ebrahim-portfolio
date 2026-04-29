@@ -150,8 +150,8 @@ function App() {
             <div className="absolute -right-8 bottom-10 h-24 w-24 rounded-full border border-cyan-400/20 bg-cyan-500/5 blur-xl" />
 
             <div className="relative rounded-[1.75rem] border border-slate-700/90 bg-slate-950/95 p-6">
-              <div className="flex items-center justify-between gap-4">
-                <div>
+              <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:justify-between">
+                <div className="text-center sm:text-left">
                   <p className="text-sm uppercase tracking-[0.35em] text-cyan-300">Profile</p>
                   <h2 className="mt-3 text-3xl font-semibold text-slate-50">MD Ebrahim Sikder</h2>
                   <p className="mt-3 max-w-sm text-sm text-slate-400">
@@ -159,7 +159,7 @@ function App() {
                     delivery for corporate operations.
                   </p>
                 </div>
-                <div className="relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-cyan-500/30 via-slate-900/20 to-fuchsia-500/30 p-1 shadow-[0_25px_90px_rgba(56,189,248,0.2)] sm:h-56 sm:w-56">
+                <div className="relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-cyan-500/30 via-slate-900/20 to-fuchsia-500/30 p-1 shadow-[0_25px_90px_rgba(56,189,248,0.2)] sm:h-56 sm:w-56 sm:ml-6">
                   <div className="absolute inset-0 rounded-full border border-cyan-400/30 blur-xl opacity-70 animate-[pulse_5s_ease-in-out_infinite]" />
                   <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-950/90 ring-1 ring-slate-700/70">
                     <img src={profileImage} alt="Portrait of MD Ebrahim Sikder" className="h-full w-full rounded-full object-cover" />
@@ -289,7 +289,7 @@ function App() {
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {['MikroTik RouterOS', 'Windows Server', 'Cisco Networking', 'VMware Virtualization', 'FortiGate Firewall', 'NVR/DVR Surveillance', 'Fiber Optic Infrastructure', 'Microsoft 365 & Google Workspace'].map((item) => (
+              {['MikroTik RouterOS', 'Windows Server', 'Cisco Networking', 'VMware Virtualization', 'Ubuntu Linux', 'FortiGate Firewall', 'NVR/DVR Surveillance', 'Fiber Optic Infrastructure', 'Microsoft 365 & Google Workspace'].map((item) => (
                 <div key={item} className="rounded-3xl border border-slate-700/80 bg-slate-950/90 p-5 text-sm text-slate-300 transition hover:border-cyan-400/40 hover:bg-slate-900/95">
                   {item}
                 </div>
