@@ -43,9 +43,23 @@ const skills = [
 
 const experience = [
   {
+    company: 'Fakir Apparels Limited',
+    role: 'IT Officer (Corporate Office)',
+    period: 'June 2026 – Present',
+    bullets: [
+      'Manage Server, network, and IT infrastructure for the company',
+      'Manage NVR/DVR and network systems',
+      'Provide on-site and remote technical support to users',
+      'Maintain computer systems, printers, and network devices',
+      'Troubleshoot system and network issues efficiently',
+      'Install and configure software, hardware, and backups',
+      'Monitor network performance and generate clear reports',
+    ],
+  },
+  {
     company: 'Next Accessories Limited',
-    role: 'IT Support Specialist',
-    period: '2023 – Present',
+    role: 'IT Executive',
+    period: 'July 2023 – June 2026',
     bullets: [
       'Provide on-site and remote technical support to users',
       'Maintain computer systems, printers, and network devices',
@@ -113,7 +127,7 @@ function App() {
           <section className="space-y-8">
             <div className="inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-slate-900/80 px-4 py-2 text-sm text-cyan-200 shadow-[0_0_0_1px_rgba(56,189,248,0.1)]">
               <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(56,189,248,0.5)] animate-pulse" />
-              IT Officer with 4 years of experience
+              IT Officer with 4+ years of experience
             </div>
 
             <div className="space-y-4">
@@ -132,9 +146,9 @@ function App() {
             <div className="grid gap-4 sm:grid-cols-2">
               {[
                 { label: 'Years Active', value: '4+' },
-                { label: 'Companies', value: '2' },
+                { label: 'Companies', value: '3' },
                 { label: 'IT System Supported', value: '50+' },
-                { label: 'Support Focus', value: 'Hardware & Network' },
+                { label: 'Support Focus', value: 'Hardware, Network & CCTV' },
               ].map((item) => (
                 <div
                   key={item.label}
@@ -197,7 +211,7 @@ function App() {
                 </div>
                 <div className="rounded-3xl bg-slate-900/95 p-5 ring-1 ring-slate-700/60">
                   <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Location</p>
-                  <p className="mt-3 text-xl font-semibold text-slate-100">Rupganj, Narayanganj</p>
+                  <p className="mt-3 text-xl font-semibold text-slate-100">Fatulla, Narayanganj</p>
                 </div>
               </div>
             </div>
@@ -409,11 +423,11 @@ function App() {
                     <span className="font-semibold text-slate-100">Phone:</span> 01852541030
                   </p>
                   <p>
-                    <span className="font-semibold text-slate-100">Location:</span> Rupganj, Narayanganj
+                    <span className="font-semibold text-slate-100">Location:</span> Fatulla, Narayanganj
                   </p>
                 </div>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {['UltraViewer', 'RustDesk', 'Zoom', 'Google Meet'].map((tool) => (
+                  {['UltraViewer', 'VNC Viewer', 'RustDesk', 'Zoom', 'Google Meet'].map((tool) => (
                     <span key={tool} className="rounded-full bg-slate-900/90 px-4 py-2 text-xs uppercase tracking-[0.35em] text-slate-300 ring-1 ring-slate-700/80">
                       {tool}
                     </span>
