@@ -189,6 +189,15 @@ function App() {
               >
                 View experience
               </a>
+              <a
+                href="/Ebrahim%20-%20Resume.pdf"
+                download="Ebrahim-Resume.pdf"
+                aria-label="Download resume PDF"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 text-sm font-semibold text-cyan-200 transition hover:border-cyan-300 hover:bg-cyan-400/20 hover:text-cyan-100 sm:w-auto"
+              >
+                <span aria-hidden="true">↓</span>
+                Download CV
+              </a>
             </div>
           </section>
 
