@@ -36,6 +36,14 @@ const skills = [
     ],
   },
   {
+    title: 'CCTV & Security Surveillance',
+    points: [
+      'NVR/DVR installation, configuration, and maintenance',
+      'IP camera setup, remote viewing, and recording management',
+      'Surveillance network troubleshooting and system monitoring',
+    ],
+  },
+  {
     title: 'Web Development (Basic)',
     points: ['HTML, CSS, JavaScript and React for modern UI'],
   },
@@ -49,6 +57,7 @@ const experience = [
     bullets: [
       'Manage Server, network, and IT infrastructure for the company',
       'Manage NVR/DVR and network systems',
+      'Install, configure, and monitor CCTV cameras and surveillance systems',
       'Provide on-site and remote technical support to users',
       'Maintain computer systems, printers, and network devices',
       'Troubleshoot system and network issues efficiently',
@@ -103,11 +112,16 @@ const tools = ['UltraViewer', 'RustDesk', 'Zoom', 'Google Meet']
 
 function App() {
   const [loading, setLoading] = useState(true)
+  const [theme, setTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'dark')
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('portfolio-theme', theme)
+  }, [theme])
 
   if (loading) {
     return (
@@ -121,11 +135,11 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <section className="space-y-8">
-            <div className="inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-slate-900/80 px-4 py-2 text-sm text-cyan-200 shadow-[0_0_0_1px_rgba(56,189,248,0.1)]">
+    <main className={`portfolio-shell min-h-screen bg-slate-950 text-slate-100 ${theme === 'light' ? 'theme-light' : ''}`}>
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <section className="reveal reveal-delay-1 space-y-6">
+            <div className="status-pill inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-slate-900/80 px-4 py-2 text-sm text-cyan-200 shadow-[0_0_0_1px_rgba(56,189,248,0.1)]">
               <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(56,189,248,0.5)] animate-pulse" />
               IT Officer with 4+ years of experience
             </div>
@@ -178,7 +192,16 @@ function App() {
             </div>
           </section>
 
-          <section className="relative isolate overflow-hidden rounded-[2rem] border border-slate-700/80 bg-slate-900/80 p-8 shadow-[0_45px_140px_rgba(15,23,42,0.45)] backdrop-blur">
+          <section className="reveal reveal-delay-2 relative isolate overflow-hidden rounded-[2rem] border border-slate-700/80 bg-slate-900/80 p-8 shadow-[0_45px_140px_rgba(15,23,42,0.45)] backdrop-blur">
+            <button
+              type="button"
+              className="theme-toggle absolute right-5 top-5 z-20"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            >
+              <span aria-hidden="true" className="theme-toggle-icon">{theme === 'dark' ? '☼' : '◐'}</span>
+            </button>
             <div className="absolute -left-24 top-10 h-36 w-36 rounded-full bg-cyan-500/10 blur-3xl" />
             <div className="absolute -right-20 top-24 h-48 w-48 rounded-full bg-slate-500/10 blur-3xl" />
             <div className="absolute -right-8 bottom-10 h-24 w-24 rounded-full border border-cyan-400/20 bg-cyan-500/5 blur-xl" />
@@ -193,13 +216,14 @@ function App() {
                       delivery for corporate operations.
                     </p>
                   </div>
-                  <div className="relative flex h-72 w-72 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-cyan-500/30 via-slate-900/20 to-fuchsia-500/30 p-1 shadow-[0_25px_90px_rgba(56,189,248,0.2)]">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/30 via-fuchsia-300/20 to-emerald-300/30 blur-3xl opacity-50 animate-pulse" />
-                    <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg_at_50%_50%,rgba(34,211,238,0.35),rgba(236,72,153,0.35),rgba(52,211,153,0.35),rgba(34,211,238,0.35))] opacity-70 animate-[spin_10s_linear_infinite]" />
-                    <div className="absolute inset-3 rounded-full border border-cyan-300/20 opacity-70" />
-                    <div className="absolute inset-5 rounded-full border border-fuchsia-300/20 opacity-50 blur-sm animate-[spin_14s_linear_reverse_infinite]" />
-                    <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-950/90 ring-1 ring-slate-700/70">
-                      <img src={profileImage} alt="Portrait of MD Ebrahim Sikder" className="h-full w-full rounded-full border-spacing-5 object-cover" />
+                  <div className="image-stage relative flex h-72 w-72 items-center justify-center overflow-hidden rounded-[2.5rem] border border-cyan-300/30 bg-gradient-to-br from-cyan-500/30 via-slate-900/20 to-fuchsia-500/30 p-1 shadow-[0_25px_90px_rgba(56,189,248,0.2)]">
+                    <div className="image-halo absolute inset-0 rounded-[2.5rem] bg-gradient-to-r from-cyan-400/30 via-fuchsia-300/20 to-emerald-300/30 blur-3xl opacity-50 animate-pulse" />
+                    <div className="absolute inset-0 rounded-[2.5rem] bg-[conic-gradient(from_0deg_at_50%_50%,rgba(34,211,238,0.35),rgba(236,72,153,0.35),rgba(52,211,153,0.35),rgba(34,211,238,0.35))] opacity-70 animate-[spin_10s_linear_infinite]" />
+                    <div className="absolute inset-3 rounded-[2rem] border border-cyan-300/20 opacity-70" />
+                    <div className="absolute inset-5 rounded-[1.75rem] border border-fuchsia-300/20 opacity-50 blur-sm animate-[spin_14s_linear_reverse_infinite]" />
+                    <div className="image-frame relative h-full w-full overflow-hidden rounded-[2rem] bg-slate-950/90 ring-1 ring-slate-700/70">
+                      <div className="image-scan absolute inset-x-0 z-10 h-16 bg-gradient-to-b from-transparent via-cyan-300/10 to-transparent" />
+                      <img src={profileImage} alt="Portrait of MD Ebrahim Sikder" className="h-full w-full rounded-[1.75rem] object-cover" />
                     </div>
                   </div>
                 </div>
@@ -218,7 +242,7 @@ function App() {
           </section>
         </div>
 
-        <section className="mt-16 space-y-8">
+        <section className="reveal reveal-delay-3 mt-12 space-y-8">
           <div className="rounded-[2rem] border border-slate-700/80 bg-slate-900/80 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.35)] backdrop-blur">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
@@ -231,8 +255,12 @@ function App() {
             </div>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-2">
-              {skills.map((skill) => (
-                <article key={skill.title} className="rounded-[1.75rem] border border-slate-700/80 bg-slate-950/90 p-6 transition hover:-translate-y-1 hover:border-cyan-500/30 hover:bg-slate-900/95">
+              {skills.map((skill, index) => (
+                <article
+                  key={skill.title}
+                  className={`skill-card ${skill.title.startsWith('CCTV') ? 'cctv-card' : ''} rounded-[1.75rem] border border-slate-700/80 bg-slate-950/90 p-6 transition hover:-translate-y-1 hover:border-cyan-500/30 hover:bg-slate-900/95`}
+                  style={{ '--card-delay': `${index * 90}ms` }}
+                >
                   <h3 className="text-xl font-semibold text-slate-100">{skill.title}</h3>
                   <ul className="mt-5 space-y-3 text-sm text-slate-400">
                     {skill.points.map((point) => (
@@ -254,8 +282,12 @@ function App() {
             </div>
 
             <div className="grid gap-6 lg:grid-cols-2">
-              {experience.map((item) => (
-                <article key={item.company} className="group rounded-[1.75rem] border border-slate-700/80 bg-slate-900/90 p-8 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-950/95">
+              {experience.map((item, index) => (
+                <article
+                  key={item.company}
+                  className="experience-card group rounded-[1.75rem] border border-slate-700/80 bg-slate-900/90 p-8 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-950/95"
+                  style={{ '--card-delay': `${index * 100}ms` }}
+                >
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <p className="text-base font-semibold text-slate-50">{item.role}</p>
@@ -287,7 +319,7 @@ function App() {
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {['Strong problem solving ability', 'Attention to detail', 'Good communication & teamwork', 'User satisfaction focused', 'Adaptable & quick learner'].map((item) => (
+                {strengths.map((item) => (
                   <div key={item} className="rounded-3xl border border-slate-700/80 bg-slate-950/90 p-4 text-sm text-slate-300">
                     {item}
                   </div>
@@ -334,7 +366,7 @@ function App() {
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {['MikroTik RouterOS', 'Windows Server', 'Cisco Networking', 'VMware Virtualization', 'Ubuntu Linux', 'FortiGate Firewall', 'NVR/DVR Surveillance', 'Fiber Optic Infrastructure', 'Microsoft 365 & Google Workspace'].map((item) => (
+                {infrastructure.map((item) => (
                 <div key={item} className="rounded-3xl border border-slate-700/80 bg-slate-950/90 p-5 text-sm text-slate-300 transition hover:border-cyan-400/40 hover:bg-slate-900/95">
                   {item}
                 </div>
@@ -427,7 +459,7 @@ function App() {
                   </p>
                 </div>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {['UltraViewer', 'VNC Viewer', 'RustDesk', 'Zoom', 'Google Meet'].map((tool) => (
+                  {tools.map((tool) => (
                     <span key={tool} className="rounded-full bg-slate-900/90 px-4 py-2 text-xs uppercase tracking-[0.35em] text-slate-300 ring-1 ring-slate-700/80">
                       {tool}
                     </span>
